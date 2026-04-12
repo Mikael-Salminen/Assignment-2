@@ -3,43 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title>Assignment 2</title>
+        <style>
+            body {
+                margin-top: 40px;
+                margin-left: 75px;
+                margin-right: 75px;
+            }
+            .question {
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                padding: 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            h3 {
+                margin-top: 0px;
+            }
+        </style>
+        <script src="code.js" defer></script>
     </head>
     <body>
+        <h1>Multiple Choice Quiz</h1>
         <div id="quizContainer"></div>
-        <script>
-            const container = document.getElementById("quizContainer");
-
-            fetch("https://raw.githubusercontent.com/Mikael-Salminen/Assignment-2/refs/heads/main/questions.json")
-            .then(res => res.json())
-            .then(data => {
-                data.forEach((q, index) => {
-                
-                const questionDiv = document.createElement("div");
-                questionDiv.classList.add("question");
-
-                const questionText = document.createElement("p");
-                questionText.textContent = q.question;
-                questionDiv.appendChild(questionText);
-
-                q.options.forEach((option, i) => {
-                    const label = document.createElement("label");
-
-                    const radio = document.createElement("input");
-                    radio.type = "radio";
-                    radio.name = "question" + index;
-                    radio.value = i;
-
-                    label.appendChild(radio);
-                    label.appendChild(document.createTextNode(option));
-
-                    questionDiv.appendChild(label);
-                    questionDiv.appendChild(document.createElement("br"));
-                });
-
-                container.appendChild(questionDiv);
-                });
-            })
-            .catch(err => console.error(err));
-        </script>
     </body>
 </html>
