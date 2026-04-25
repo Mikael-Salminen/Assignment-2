@@ -1,12 +1,27 @@
 [
   {
-    "question": "What is 2 + 2?",
-    "options": ["3", "4", "5"],
+    "question": "What is the capital of Finland?",
+    "options": ["Helsinki", "Stockholm", "Oslo"],
+    "correct": 0
+  },
+  {
+    "question": "Which continent is Brazil in?",
+    "options": ["Europe", "South America", "Africa"],
     "correct": 1
   },
   {
-    "question": "Capital of France?",
-    "options": ["Berlin", "Paris", "Rome"],
+    "question": "What ocean is on the east coast of the United States?",
+    "options": ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean"],
+    "correct": 0
+  },
+  {
+    "question": "Which country is known for the Eiffel Tower?",
+    "options": ["Italy", "Spain", "France"],
+    "correct": 2
+  },
+  {
+    "question": "Which is the largest continent?",
+    "options": ["Africa", "Asia", "Europe"],
     "correct": 1
   }
 ]

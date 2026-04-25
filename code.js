@@ -25,6 +25,8 @@ fetch("https://raw.githubusercontent.com/Mikael-Salminen/Assignment-2/refs/heads
             radio.name = "question" + index;
             radio.value = i;
 
+            radio.dataset.correct = i === q.correct ? "true" : "false";
+
             label.appendChild(radio);
             label.appendChild(document.createTextNode(option));
 
@@ -35,3 +37,27 @@ fetch("https://raw.githubusercontent.com/Mikael-Salminen/Assignment-2/refs/heads
         });
     })
 .catch(err => console.error(err));
+
+document.getElementById("submit").addEventListener("click", () => {
+    const questions = document.querySelectorAll(".question");
+    let correct = 0, incorrect = 0;
+
+    questions.forEach(q => {
+        const selected = q.querySelector("input:checked");
+        if (selected && selected.dataset.correct === "true")
+            correct++;
+        else
+            incorrect++;
+    });
+
+    if (document.getElementById("results") == null) {
+        const results = document.createElement("p");
+        results.id = "results";
+        results.style.backgroundColor = "lightcyan";
+        results.style.padding = "15px";
+        container.appendChild(results);
+    }
+
+
+    document.getElementById("results").innerHTML = `<strong>Result:</strong> You got ${correct} correct and ${incorrect} wrong out of ${questions.length}.`
+});
